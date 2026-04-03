@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vantage-terminal"
+version = "0.1.0"
+description = "VANTAGE — Visual Arts & Design Intelligence Terminal"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.111.0"
+]
+
+[project.scripts]
+vantage = "vantage:main"
