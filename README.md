@@ -52,6 +52,10 @@ Data is now stored in `knowledge_base.json` and includes real references for all
 ## Setup
 ```bash
 python3 vantage.py
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python vantage.py
 ```
 
 ## Example
@@ -61,3 +65,6 @@ ASK kurosawa
 ASK rack focus
 ASK confirmshaming
 ```
+```
+
+VANTAGE will return a stack-aligned build spec with deterministic visual and systems guidance.

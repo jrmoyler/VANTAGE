@@ -7,6 +7,8 @@ import json
 import shlex
 from dataclasses import dataclass
 from pathlib import Path
+import shlex
+from dataclasses import dataclass
 from textwrap import dedent
 
 
@@ -56,6 +58,14 @@ class VantageEngine:
         "Mid-Century Modern", "Postmodern", "Grunge", "Editorial Modern", "Data Visualization Minimal",
         "Monochrome Utility", "Cinematic Matte", "Arcade UI", "Skeuomorphism", "Flat Design",
         "Material-inspired Systems", "Isometric Illustration", "Diagrammatic Interface", "Generative Design"
+        "Neo-Brutalism", "Swiss International", "Bauhaus Modern", "Cyberpunk Editorial", "Memphis Revival",
+        "High-Contrast Minimalism", "Noir Futurism", "Data Monastic", "Kinetic Typography", "Monochrome Utility",
+        "Y2K Interface", "Retro CRT Ops", "Constructivist Grid", "Japanese Metabolism", "Mid-century Corporate",
+        "Biomorphic Tech", "Post-Internet Collage", "Luxury Tech Editorial", "Glitch Systems", "Tactical Industrial",
+        "Monospace Intelligence", "Cinematic Matte UI", "Diagrammatic Product", "Skeuomorphic Tactical",
+        "Branded Command Center", "Experimental Type-led", "Modular Storyboard", "Voxel UI", "Vector Flat Pro",
+        "Editorial Darkness", "Generative Organic", "Parametric Dashboard", "Brutalist Data Ops", "Speculative Interface",
+        "Analog Plotter", "Arcade Overlay", "Architectural Blueprint", "Motion-first Product",
     ]
 
     principles = [
@@ -86,6 +96,18 @@ class VantageEngine:
         ("cinematography_lexicon", "Cinematography Lexicon"),
         ("camera_lens_catalog", "Camera / Lens Catalog"),
         ("photo_styles_and_design_psychology", "Photo Styles + Design Psychology Layers"),
+        ("Anime Artists & Mangakas", "Top creators, visual language, era influence."),
+        ("Graphic Design Artists", "Identity legends, poster pioneers, typographic systems."),
+        ("Modern & Contemporary Artists", "Top 100 reference index across mediums."),
+        ("Cartoon & Animation Styles", "Top 100 style taxonomy and use-cases."),
+        ("Art Styles & Movements", "Top 100 movement map from Renaissance to Post-Internet."),
+        ("Animated Films", "Top 100 narrative + style benchmark films."),
+        ("Structural Rules of Design", "Composition laws, spacing systems, hierarchy frameworks."),
+        ("Design & Color Psychology", "Cognitive triggers, emotional palettes, trust markers."),
+        ("Film Directors", "Top 100 directing signatures and cinematic grammar."),
+        ("Cinematography Lexicon", "Shot types, lens grammar, lighting archetypes."),
+        ("Camera/Lens Catalog", "Focal lengths, compression behavior, application matrix."),
+        ("Photo Styles + UX Psychology", "50 photo styles + game UX, dark patterns, behavioral layers."),
     ]
 
     def generate(self, intent: str) -> dict:
@@ -102,6 +124,8 @@ class VantageEngine:
         components = sorted(set(components))
         matched = []
 
+
+        matched = []
         if any(k in lowered for k in ["dashboard", "analytics", "data", "console"]):
             matched.extend(["Hierarchy", "Miller's Law"])
         if any(k in lowered for k in ["app", "product", "flow", "onboarding"]):
@@ -171,6 +195,7 @@ class VantageApp:
     @staticmethod
     def hr(title: str = "") -> None:
         line = "=" * 100
+        line = "=" * 96
         print(f"\n{line}\n{title}\n{line}" if title else f"\n{line}")
 
     def header(self) -> None:
@@ -199,6 +224,9 @@ class VantageApp:
             self.hr("SCREEN 2 — Knowledge Base (Real Seed Data)")
             for idx, (key, title) in enumerate(self.engine.knowledge_cards, start=1):
                 print(f"{idx:02d}. {title}: {len(self.engine.knowledge_db[key])} records")
+            self.hr("SCREEN 2 — Knowledge Base")
+            for idx, (name, summary) in enumerate(self.engine.knowledge_cards, start=1):
+                print(f"{idx:02d}. {name}: {summary}")
         elif num == 3:
             self.hr("SCREEN 3 — Style Explorer")
             for i, style in enumerate(self.engine.style_explorer, start=1):
@@ -231,6 +259,13 @@ class VantageApp:
 
         for idx, (key, item) in enumerate(hits[:12], start=1):
             print(f"{idx:02d}. {key}: {item}")
+        self.hr(f"Knowledge Query — {query}")
+        tokens = query.lower().split()
+        matches = [(n, s) for n, s in self.engine.knowledge_cards if any(t in n.lower() for t in tokens)]
+        if not matches:
+            matches = self.engine.knowledge_cards[:4]
+        for name, summary in matches:
+            print(f"- {name}: {summary}")
 
     def run_generate(self, intent: str) -> None:
         out = self.engine.generate(intent)
