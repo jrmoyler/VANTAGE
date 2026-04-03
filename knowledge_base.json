@@ -1,0 +1,128 @@
+{
+  "anime_artists_mangakas": [
+    {"name": "Osamu Tezuka", "note": "God of Manga; cinematic paneling and serialized pacing.", "era": "1950s-1980s"},
+    {"name": "Katsuhiro Otomo", "note": "Akira creator; dense urban futurism and kinetic destruction.", "era": "1980s-present"},
+    {"name": "Hayao Miyazaki", "note": "Studio Ghibli co-founder; ecological fantasy and fluid motion language.", "era": "1970s-present"},
+    {"name": "Satoshi Kon", "note": "Psychological montage and reality-fiction blurring in animation.", "era": "1990s-2010"},
+    {"name": "Naoko Takeuchi", "note": "Sailor Moon; magical-girl visual codification.", "era": "1990s-present"},
+    {"name": "Takehiko Inoue", "note": "Slam Dunk/Vagabond; expressive brushwork and dramatic anatomy.", "era": "1990s-present"},
+    {"name": "Rumiko Takahashi", "note": "Prolific character comedy-action storytelling systems.", "era": "1970s-present"},
+    {"name": "Tite Kubo", "note": "Bleach; high-contrast character silhouette and fashion cues.", "era": "2000s-present"}
+  ],
+  "graphic_design_artists": [
+    {"name": "Paul Rand", "note": "IBM/ABC/UPS logos; modern corporate identity systems."},
+    {"name": "Massimo Vignelli", "note": "NYC Subway map and strict modernist grids."},
+    {"name": "Saul Bass", "note": "Iconic film title sequences and reductive poster language."},
+    {"name": "Josef Muller-Brockmann", "note": "Swiss grid systems and objective typography."},
+    {"name": "Milton Glaser", "note": "I ❤ NY and expressive conceptual poster design."},
+    {"name": "Neville Brody", "note": "Experimental editorial typography (The Face)."},
+    {"name": "Paula Scher", "note": "Large-scale environmental typography and identity."},
+    {"name": "Stefan Sagmeister", "note": "Concept-first graphic systems and provocative craft."}
+  ],
+  "modern_contemporary_artists": [
+    {"name": "Pablo Picasso", "note": "Cubism co-founder."},
+    {"name": "Henri Matisse", "note": "Fauvism and color simplification."},
+    {"name": "Wassily Kandinsky", "note": "Abstract spiritual composition."},
+    {"name": "Frida Kahlo", "note": "Symbolic self-portraiture."},
+    {"name": "Jackson Pollock", "note": "Action painting."},
+    {"name": "Mark Rothko", "note": "Color field emotional scale."},
+    {"name": "Jean-Michel Basquiat", "note": "Neo-expressionist text-image fusion."},
+    {"name": "Yayoi Kusama", "note": "Infinity environments and repetition."},
+    {"name": "Gerhard Richter", "note": "Photo-painting ambiguity."},
+    {"name": "Cindy Sherman", "note": "Identity and constructed photography."}
+  ],
+  "cartoon_animation_styles": [
+    {"name": "Anime", "note": "Stylized character acting, cinematic framing, limited-animation efficiency."},
+    {"name": "Rubber Hose", "note": "Elastic limbs and rhythm-driven slapstick (1930s)."},
+    {"name": "UPA Modern", "note": "Flat graphic abstraction, mid-century stylization."},
+    {"name": "Disney Illusionism", "note": "Squash/stretch plus volumetric character animation."},
+    {"name": "Stop-motion", "note": "Physical miniature capture with tactile lighting."},
+    {"name": "Claymation", "note": "Plasticine sculptural frame-by-frame workflow."},
+    {"name": "Cutout", "note": "Paper/rigged piece-based animation approach."},
+    {"name": "Motion Graphics", "note": "Type-shape driven narrative animation for info and brand."}
+  ],
+  "art_styles_movements": [
+    {"name": "Renaissance", "note": "Perspective, anatomy, humanist narrative."},
+    {"name": "Baroque", "note": "Dramatic light and theatrical composition."},
+    {"name": "Impressionism", "note": "Light-driven brushwork and modern life scenes."},
+    {"name": "Post-Impressionism", "note": "Expressive color and structure beyond optical realism."},
+    {"name": "Cubism", "note": "Multi-viewpoint geometry."},
+    {"name": "Surrealism", "note": "Dream logic and symbolic juxtaposition."},
+    {"name": "Bauhaus", "note": "Function-first interdisciplinary design."},
+    {"name": "Brutalism", "note": "Raw forms and unapologetic materiality."},
+    {"name": "Minimalism", "note": "Reduction to essential form and color."},
+    {"name": "Postmodernism", "note": "Eclectic quotation and anti-universal style."}
+  ],
+  "animated_films": [
+    {"name": "Spirited Away", "year": 2001, "note": "Miyazaki fantasy worldbuilding benchmark."},
+    {"name": "Akira", "year": 1988, "note": "Cyberpunk animation and urban spectacle."},
+    {"name": "Ghost in the Shell", "year": 1995, "note": "Philosophical cybernetic noir."},
+    {"name": "The Lion King", "year": 1994, "note": "Broadway-inflected Disney peak."},
+    {"name": "Toy Story", "year": 1995, "note": "Feature CGI milestone."},
+    {"name": "Spider-Man: Into the Spider-Verse", "year": 2018, "note": "Hybrid comic-driven visual grammar."},
+    {"name": "Princess Mononoke", "year": 1997, "note": "Epic eco-industrial conflict."},
+    {"name": "Perfect Blue", "year": 1997, "note": "Psychological thriller animation."}
+  ],
+  "structural_rules_design": [
+    {"name": "CRAP", "note": "Contrast, Repetition, Alignment, Proximity."},
+    {"name": "Visual Hierarchy", "note": "Order attention by scale/contrast/position."},
+    {"name": "Rule of Thirds", "note": "Compositional division for focal balance."},
+    {"name": "Golden Ratio", "note": "Proportion guide using 1:1.618 relationships."},
+    {"name": "8pt Grid", "note": "Consistent spacing and sizing cadence."},
+    {"name": "Baseline Grid", "note": "Typographic rhythm alignment."},
+    {"name": "Progressive Disclosure", "note": "Layer complexity over user intent."},
+    {"name": "Consistency Principle", "note": "Pattern reuse reduces cognitive load."}
+  ],
+  "design_color_psychology": [
+    {"name": "Color-Emotion Mapping", "note": "Blue trust, red urgency, green growth, black authority (culture-sensitive)."},
+    {"name": "Contrast Sensitivity", "note": "Perceived readability depends on luminance contrast."},
+    {"name": "Von Restorff Effect", "note": "Distinct visual items are remembered better."},
+    {"name": "Hick's Law", "note": "Decision time rises with option count."},
+    {"name": "Fitts's Law", "note": "Target size/distance affects interaction speed."},
+    {"name": "Aesthetic-Usability Effect", "note": "Users perceive attractive designs as easier to use."},
+    {"name": "Peak-End Rule", "note": "Experience judged by peak and ending moments."},
+    {"name": "Goal-Gradient Effect", "note": "Users accelerate as they approach completion."}
+  ],
+  "film_directors": [
+    {"name": "Akira Kurosawa", "note": "Dynamic blocking, weather, and movement in frame."},
+    {"name": "Alfred Hitchcock", "note": "Suspense grammar and subjective camera logic."},
+    {"name": "Stanley Kubrick", "note": "Symmetry, precision, psychological distance."},
+    {"name": "Andrei Tarkovsky", "note": "Long takes and metaphysical imagery."},
+    {"name": "Agnès Varda", "note": "Essayistic documentary-fiction blend."},
+    {"name": "Martin Scorsese", "note": "Kinetic camera language and character intensity."},
+    {"name": "Wong Kar-wai", "note": "Temporal fragmentation and neon romanticism."},
+    {"name": "Christopher Nolan", "note": "Temporal structure, practical spectacle."}
+  ],
+  "cinematography_lexicon": [
+    {"term": "Extreme Wide Shot", "definition": "Establishes geography and scale."},
+    {"term": "Close-Up", "definition": "Prioritizes emotion or detail."},
+    {"term": "Dolly In", "definition": "Physical camera move toward subject."},
+    {"term": "Rack Focus", "definition": "Shifts focal plane between subjects."},
+    {"term": "Dutch Angle", "definition": "Tilted horizon signaling unease."},
+    {"term": "Chiaroscuro", "definition": "Strong light-dark contrast modeling form."},
+    {"term": "Motivated Lighting", "definition": "Light justified by in-scene sources."},
+    {"term": "Bokeh", "definition": "Out-of-focus quality of highlights."}
+  ],
+  "camera_lens_catalog": [
+    {"name": "ARRI ALEXA 35", "note": "Super 35 digital cinema camera with high dynamic range."},
+    {"name": "RED V-RAPTOR 8K", "note": "High-resolution cinema capture and frame-rate flexibility."},
+    {"name": "Sony Venice 2", "note": "Full-frame cinema system with color science depth."},
+    {"name": "Canon EOS R5 C", "note": "Hybrid stills/cinema capture body."},
+    {"name": "24mm Prime", "note": "Wide environmental storytelling focal length."},
+    {"name": "35mm Prime", "note": "Natural perspective for narrative work."},
+    {"name": "50mm Prime", "note": "Classic normal field of view."},
+    {"name": "85mm Prime", "note": "Portrait isolation and compression."}
+  ],
+  "photo_styles_and_design_psychology": [
+    {"name": "Street Photography", "note": "Candid urban observation and timing."},
+    {"name": "Documentary", "note": "Context-rich truth-claim storytelling."},
+    {"name": "Editorial Portrait", "note": "Narrative identity through styling and lighting."},
+    {"name": "Product Photography", "note": "Material legibility and desirability cues."},
+    {"name": "Long Exposure", "note": "Time accumulation as texture."},
+    {"name": "High-Key", "note": "Bright low-contrast emotional tone."},
+    {"name": "Low-Key", "note": "Shadow-led drama and selectivity."},
+    {"name": "Dark Pattern: Confirmshaming", "note": "Manipulative opt-out language in UI."},
+    {"name": "Game UX: Flow Channel", "note": "Balance challenge and skill to sustain engagement."},
+    {"name": "Anticipatory Design", "note": "Predict likely user needs from context/history."}
+  ]
+}

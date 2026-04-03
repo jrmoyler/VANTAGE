@@ -3,6 +3,10 @@
 
 from __future__ import annotations
 
+import json
+import shlex
+from dataclasses import dataclass
+from pathlib import Path
 import shlex
 from dataclasses import dataclass
 from textwrap import dedent
@@ -16,6 +20,10 @@ class Principle:
 
 
 class VantageEngine:
+    def __init__(self) -> None:
+        data_path = Path(__file__).with_name("knowledge_base.json")
+        self.knowledge_db = json.loads(data_path.read_text(encoding="utf-8"))
+
     component_rules = {
         "dashboard": ["12-column data grid", "KPI cards", "trend lines", "filter rail"],
         "portfolio": ["modular masonry gallery", "project case-study cards", "sticky narrative nav"],
@@ -43,6 +51,13 @@ class VantageEngine:
     }
 
     style_explorer = [
+        "Swiss International Style", "Bauhaus", "Art Deco", "Constructivism", "De Stijl", "Brutalism",
+        "Minimalism", "Maximalism", "Neo-Brutalism", "Memphis", "Psychedelic", "International Typographic Style",
+        "Corporate Modernism", "Afrofuturism", "Cyberpunk", "Biopunk", "Retro Futurism", "Y2K",
+        "Vaporwave", "Noir", "Superflat", "Ukiyo-e", "Wabi-sabi", "Scandinavian Minimal",
+        "Mid-Century Modern", "Postmodern", "Grunge", "Editorial Modern", "Data Visualization Minimal",
+        "Monochrome Utility", "Cinematic Matte", "Arcade UI", "Skeuomorphism", "Flat Design",
+        "Material-inspired Systems", "Isometric Illustration", "Diagrammatic Interface", "Generative Design"
         "Neo-Brutalism", "Swiss International", "Bauhaus Modern", "Cyberpunk Editorial", "Memphis Revival",
         "High-Contrast Minimalism", "Noir Futurism", "Data Monastic", "Kinetic Typography", "Monochrome Utility",
         "Y2K Interface", "Retro CRT Ops", "Constructivist Grid", "Japanese Metabolism", "Mid-century Corporate",
@@ -69,6 +84,18 @@ class VantageEngine:
     ]
 
     knowledge_cards = [
+        ("anime_artists_mangakas", "Anime Artists & Mangakas"),
+        ("graphic_design_artists", "Graphic Design Artists"),
+        ("modern_contemporary_artists", "Modern & Contemporary Artists"),
+        ("cartoon_animation_styles", "Cartoon & Animation Styles"),
+        ("art_styles_movements", "Art Styles & Movements"),
+        ("animated_films", "Animated Films"),
+        ("structural_rules_design", "Structural Rules of Design"),
+        ("design_color_psychology", "Design Theories & Color Psychology"),
+        ("film_directors", "Film Directors"),
+        ("cinematography_lexicon", "Cinematography Lexicon"),
+        ("camera_lens_catalog", "Camera / Lens Catalog"),
+        ("photo_styles_and_design_psychology", "Photo Styles + Design Psychology Layers"),
         ("Anime Artists & Mangakas", "Top creators, visual language, era influence."),
         ("Graphic Design Artists", "Identity legends, poster pioneers, typographic systems."),
         ("Modern & Contemporary Artists", "Top 100 reference index across mediums."),
@@ -95,6 +122,8 @@ class VantageEngine:
             components.extend(["200ms micro-interactions", "command feedback pulse", "prefers-reduced-motion fallbacks"])
 
         components = sorted(set(components))
+        matched = []
+
 
         matched = []
         if any(k in lowered for k in ["dashboard", "analytics", "data", "console"]):
@@ -165,6 +194,7 @@ class VantageApp:
 
     @staticmethod
     def hr(title: str = "") -> None:
+        line = "=" * 100
         line = "=" * 96
         print(f"\n{line}\n{title}\n{line}" if title else f"\n{line}")
 
@@ -191,6 +221,9 @@ class VantageApp:
             self.hr("SCREEN 1 — Prompt Generator")
             print("Run: GENERATE [intent]")
         elif num == 2:
+            self.hr("SCREEN 2 — Knowledge Base (Real Seed Data)")
+            for idx, (key, title) in enumerate(self.engine.knowledge_cards, start=1):
+                print(f"{idx:02d}. {title}: {len(self.engine.knowledge_db[key])} records")
             self.hr("SCREEN 2 — Knowledge Base")
             for idx, (name, summary) in enumerate(self.engine.knowledge_cards, start=1):
                 print(f"{idx:02d}. {name}: {summary}")
@@ -208,6 +241,24 @@ class VantageApp:
             print("SCREEN must be 1-5")
 
     def ask_knowledge(self, query: str) -> None:
+        q = query.lower()
+        self.hr(f"Knowledge Query — {query}")
+        hits = []
+        for key, _title in self.engine.knowledge_cards:
+            for item in self.engine.knowledge_db[key]:
+                joined = " ".join(str(v) for v in item.values()).lower()
+                if q in joined or any(tok in joined for tok in q.split()):
+                    hits.append((key, item))
+
+        if not hits:
+            print("No direct match. Showing representative records:")
+            for key, title in self.engine.knowledge_cards[:4]:
+                sample = self.engine.knowledge_db[key][0]
+                print(f"- {title}: {sample}")
+            return
+
+        for idx, (key, item) in enumerate(hits[:12], start=1):
+            print(f"{idx:02d}. {key}: {item}")
         self.hr(f"Knowledge Query — {query}")
         tokens = query.lower().split()
         matches = [(n, s) for n, s in self.engine.knowledge_cards if any(t in n.lower() for t in tokens)]
