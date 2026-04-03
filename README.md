@@ -4,14 +4,8 @@
 VANTAGE is an operator-grade creative command console for design technologists and creative operators.
 
 It supports two runtimes:
-- **Terminal CLI** for command-driven workflow (`GENERATE`, `ASK`, `STYLES`, etc.)
-- **Vercel-hostable API** for web/app integrations
-VANTAGE is an operator-grade creative command console built for design technologists. It converts natural-language build intent into:
-
-- a **Component Matrix** (layout, motion, type, color, data tiers),
-- a **production-ready Structured Prompt**,
-- **Design Intelligence** (top 4 principles + rationale),
-- and a **Color Direction map** aligned to the 60:30:10 system.
+- **Terminal CLI** for command-driven workflows (`GENERATE`, `ASK`, `STYLES`, etc.)
+- **FastAPI web app + API** for browser and app integrations (Vercel-compatible)
 
 ## Visual DNA
 - **60% Environment:** `#080B10`
@@ -21,17 +15,15 @@ VANTAGE is an operator-grade creative command console built for design technolog
 - **Typography direction:** Syne 800 (display), DM Mono (terminal/data)
 - **Grid motif:** 40px subtle overlay at 1.5% opacity
 
-## Core Screens (CLI)
 ## Core Screens
 1. Prompt Generator
 2. Knowledge Base (12-card creative intelligence index)
-3. Style Explorer (30+ styles)
-4. Principles Index (12 design laws)
-5. Command Console (HELP/Menu)
+3. Style Explorer
+4. Principles Index
+5. Command Console
 
-## Real Seeded Knowledge Base
-Data is in `knowledge_base.json` with real references for:
-Data is now stored in `knowledge_base.json` and includes real references for all required areas:
+## Data + Knowledge
+Data is stored in `knowledge_base.json` and includes curated references for:
 - Anime artists & mangakas
 - Graphic design artists
 - Modern/contemporary artists
@@ -45,10 +37,7 @@ Data is now stored in `knowledge_base.json` and includes real references for all
 - Camera and lens catalog
 - Photography styles + psychology layers (game UX, dark patterns, anticipatory design)
 
-## CLI Commands
-- Photography styles + design psychology layers (game UX, dark patterns, anticipatory design)
-
-## Command System
+## Command System (CLI)
 - `GENERATE [intent]`
 - `ASK [query]`
 - `STYLES`
@@ -59,19 +48,23 @@ Data is now stored in `knowledge_base.json` and includes real references for all
 - `CLEAR`
 - `EXIT`
 
-## Local Run (CLI)
+## Local Run
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# CLI
 python3 main.py
-# or
-python3 vantage.py
-# or installed script
-vantage
+
+# Web app / API
+uvicorn api.main:app --reload
 ```
 
-## API Entrypoint (for hosting)
-- `api/main.py` (FastAPI app instance: `app`)
+Open: `http://127.0.0.1:8000/`
 
-### API Endpoints
+## API Endpoints
+- `GET /` (web UI)
 - `GET /api/health`
 - `GET /api/knowledge`
 - `GET /api/styles`
@@ -79,30 +72,14 @@ vantage
 - `POST /api/generate` with `{ "intent": "..." }`
 - `POST /api/ask` with `{ "query": "..." }`
 
+## Security + Reliability Baseline
+- Input-length validation on mutation/search endpoints
+- Security headers middleware (CSP, clickjacking, nosniff, referrer policy)
+- `prefers-reduced-motion` fallback in UI stylesheet
+
 ## Vercel Deployment
 This repo is configured for Vercel with `vercel.json` routing all requests to `api/main.py`.
 
 ```bash
 vercel
 ```
-
-Vercel will install dependencies from `requirements.txt` and deploy the Python API.
-## Setup
-```bash
-python3 vantage.py
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python vantage.py
-```
-
-## Example
-```text
-GENERATE Build a cinematic AI dashboard for creative direction with motion-heavy analytics
-ASK kurosawa
-ASK rack focus
-ASK confirmshaming
-```
-```
-
-VANTAGE will return a stack-aligned build spec with deterministic visual and systems guidance.

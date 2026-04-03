@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VANTAGE</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>VANTAGE</h1>
+          <p>Visual Arts & Design Intelligence Terminal</p>
+        </div>
+        <span class="pill" id="status-pill">API: online</span>
+      </header>
+
+      <section class="grid two">
+        <article class="card">
+          <h2>Prompt Generator</h2>
+          <label for="intent">Build intent</label>
+          <textarea id="intent" rows="5" placeholder="Describe what you need to build..."></textarea>
+          <button id="generate-btn">Generate system spec</button>
+          <pre id="generate-output" aria-live="polite"></pre>
+        </article>
+
+        <article class="card">
+          <h2>Knowledge Search</h2>
+          <label for="query">Query</label>
+          <input id="query" type="text" placeholder="Try: kurosawa, rack focus, confirmshaming" />
+          <button id="ask-btn">Search</button>
+          <ul id="ask-output" aria-live="polite"></ul>
+        </article>
+      </section>
+
+      <section class="grid three">
+        <article class="card compact">
+          <h3>Styles</h3>
+          <ul id="styles-output"></ul>
+        </article>
+        <article class="card compact">
+          <h3>Principles</h3>
+          <ul id="principles-output"></ul>
+        </article>
+        <article class="card compact">
+          <h3>Knowledge Domains</h3>
+          <ul id="knowledge-output"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
